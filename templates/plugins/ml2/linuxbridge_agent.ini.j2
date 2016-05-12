@@ -12,7 +12,9 @@ physical_interface_mappings = {{ neutron_provider_networks.network_mappings }}
 
 {% if neutron_vxlan_enabled | bool %}
 enable_vxlan = True
+{% if neutron_vxlan_multicast_enabled | bool %}
 vxlan_group = {{ neutron_vxlan_group }}
+{% endif %}
 # VXLAN local tunnel endpoint
 local_ip = {{ neutron_local_ip }}
 l2_population = {{ neutron_l2_population }}

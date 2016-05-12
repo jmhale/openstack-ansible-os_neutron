@@ -30,7 +30,9 @@ network_vlan_ranges = {{ neutron_provider_networks.network_vlan_ranges }}
 
 # ML2 VXLAN networks
 [ml2_type_vxlan]
+{% if neutron_vxlan_multicast_enabled | bool %}
 vxlan_group = {{ neutron_vxlan_group }}
+{% endif %}
 vni_ranges = {{ neutron_provider_networks.network_vxlan_ranges }}
 
 {% endif %}
